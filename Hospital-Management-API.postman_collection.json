@@ -1,0 +1,170 @@
+{
+  "info": {
+    "_postman_id": "d4000000-0000-4000-8000-000000000000",
+    "name": "Hospital Management API",
+    "description": "CRUD routes for the Hospital Management backend (Express + MongoDB Atlas).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "00000000"
+  },
+  "item": [
+    {
+      "name": "Create - Admit a new patient",
+      "id": "d4000001-0000-4000-8000-000000000001",
+      "protocolProfileBehavior": {},
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Ramesh Kumar\",\n  \"age\": 45,\n  \"gender\": \"Male\",\n  \"disease\": \"Dengue\",\n  \"doctorAssigned\": \"Dr. Iyer\",\n  \"roomNumber\": \"204\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "{{base_url}}/patients",
+          "host": ["{{base_url}}"],
+          "path": ["patients"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create - Missing required field (should fail with 400)",
+      "id": "d4000002-0000-4000-8000-000000000002",
+      "protocolProfileBehavior": {},
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"No Disease Patient\",\n  \"age\": 30,\n  \"gender\": \"Female\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "{{base_url}}/patients",
+          "host": ["{{base_url}}"],
+          "path": ["patients"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Read - Get all patients (paginated + search)",
+      "id": "d4000003-0000-4000-8000-000000000003",
+      "protocolProfileBehavior": {},
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/patients?page=1&limit=5&search=",
+          "host": ["{{base_url}}"],
+          "path": ["patients"],
+          "query": [
+            { "key": "page", "value": "1" },
+            { "key": "limit", "value": "5" },
+            { "key": "search", "value": "" }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Read - Get patients filtered by status",
+      "id": "d4000004-0000-4000-8000-000000000004",
+      "protocolProfileBehavior": {},
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/patients?status=Admitted",
+          "host": ["{{base_url}}"],
+          "path": ["patients"],
+          "query": [{ "key": "status", "value": "Admitted" }]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Read - Get a single patient by id",
+      "id": "d4000005-0000-4000-8000-000000000005",
+      "protocolProfileBehavior": {},
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/patients/{{patient_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["patients", "{{patient_id}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update - Discharge a patient",
+      "id": "d4000006-0000-4000-8000-000000000006",
+      "protocolProfileBehavior": {},
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"Discharged\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "{{base_url}}/patients/{{patient_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["patients", "{{patient_id}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update - Edit patient details",
+      "id": "d4000007-0000-4000-8000-000000000007",
+      "protocolProfileBehavior": {},
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"roomNumber\": \"310\",\n  \"doctorAssigned\": \"Dr. Mehta\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "{{base_url}}/patients/{{patient_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["patients", "{{patient_id}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete - Remove a patient record",
+      "id": "d4000008-0000-4000-8000-000000000008",
+      "protocolProfileBehavior": {},
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/patients/{{patient_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["patients", "{{patient_id}}"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:5000", "type": "string" },
+    { "key": "patient_id", "value": "REPLACE_WITH_REAL_ID", "type": "string" }
+  ]
+}

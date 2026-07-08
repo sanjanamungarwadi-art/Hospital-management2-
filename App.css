@@ -1,0 +1,315 @@
+/* frontend/src/App.css */
+
+body {
+  background-color: #f4f6f8;
+  color: #333333;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #1a202c;
+  margin-bottom: 30px;
+}
+
+h2 {
+  margin-top: 0;
+  color: #2d3748;
+  font-size: 1.4rem;
+  border-bottom: 1px solid #edf2f7;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+h4 {
+  margin: 0 0 10px 0;
+  color: #4a5568;
+}
+
+/* Card Containers */
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* Forms styling */
+form {
+  display: flex;
+  gap: 10px;
+}
+
+.add-book-form {
+  flex-direction: column;
+}
+
+input, select {
+  padding: 10px;
+  border: 1px solid #cbd5e0;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  background-color: #fff;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #4299e1;
+}
+
+button {
+  cursor: pointer;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background-color 0.2s;
+}
+
+.add-book-form button {
+  background-color: #3182ce;
+  color: white;
+}
+
+.add-book-form button:hover {
+  background-color: #2b6cb0;
+}
+
+.search-form {
+  margin-bottom: 20px;
+}
+
+.search-form input {
+  flex: 1;
+}
+
+.search-form button {
+  background-color: #4a5568;
+  color: white;
+}
+
+.search-form button:hover {
+  background-color: #2d3748;
+}
+
+/* Error Typography */
+.error-text {
+  color: #e53e3e;
+  font-size: 0.85rem;
+  margin-top: 8px;
+  margin-bottom: 0;
+  font-weight: 500;
+}
+
+.row-error {
+  margin: 5px 0;
+  padding: 4px 8px;
+  background-color: #fff5f5;
+  border-radius: 4px;
+}
+
+/* Lists and Items */
+.book-list, .loan-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.book-item-container {
+  border: 1px solid #edf2f7;
+  border-radius: 6px;
+  padding: 12px;
+  background-color: #f7fafc;
+}
+
+.book-row, .loan-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.loan-row {
+  border: 1px solid #edf2f7;
+  border-radius: 6px;
+  padding: 12px;
+  background-color: #f7fafc;
+}
+
+.book-info, .loan-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.book-details, .loan-details {
+  font-size: 0.85rem;
+  color: #718096;
+}
+
+.copies-badge {
+  color: #2b6cb0;
+  font-weight: 500;
+}
+
+.out-of-stock-text {
+  font-size: 0.85rem;
+  color: #a0aec0;
+  font-style: italic;
+}
+
+/* Interactive Actions */
+.book-actions, .loan-status-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-borrow {
+  background-color: #319795;
+  color: white;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+
+.btn-borrow:hover {
+  background-color: #2c7a7b;
+}
+
+.btn-delete {
+  background-color: #e53e3e;
+  color: white;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+
+.btn-delete:hover {
+  background-color: #c53030;
+}
+
+.btn-return {
+  background-color: #4a5568;
+  color: white;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+
+.btn-return:hover {
+  background-color: #2d3748;
+}
+
+/* Mini Form Context nested rules */
+.borrow-mini-form {
+  margin-top: 12px;
+  padding: 12px;
+  background-color: #ebf8ff;
+  border-left: 4px solid #4299e1;
+  border-radius: 4px;
+}
+
+.mini-form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mini-form-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-confirm {
+  background-color: #4299e1;
+  color: white;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+
+.btn-confirm:hover {
+  background-color: #3182ce;
+}
+
+.btn-cancel {
+  background-color: #a0aec0;
+  color: white;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+
+.btn-cancel:hover {
+  background-color: #718096;
+}
+
+/* Control filters */
+.filter-container {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+/* Component Badges */
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge.borrowed {
+  background-color: #feebc8;
+  color: #c05621;
+}
+
+.badge.returned {
+  background-color: #c6f6d5;
+  color: #22543d;
+}
+
+.badge.overdue {
+  background-color: #fed7d7;
+  color: #9b2c2c;
+  margin-left: 4px;
+}
+
+/* Pagination Control Mechanics */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+
+.pagination button {
+  background-color: #edf2f7;
+  color: #4a5568;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #e2e8f0;
+}
+
+.pagination button:disabled {
+  color: #a0aec0;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
